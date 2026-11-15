@@ -488,8 +488,20 @@ body {
 
 /* Adjust the header for tablet and small-screen widths. */
 @media (max-width: 900px) {
+    .main-content {
+        margin-left: 216px;
+        margin-right: 0;
+        padding: 48px 28px;
+    }
+
     .calculator-section {
+        margin-left: 0;
         grid-template-columns: 1fr;
+    }
+
+    .reference-section {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
@@ -611,39 +623,54 @@ body {
 
     .sidebar {
         top: 120px;
-        left: 16px;
-        width: 46px;
-        /* dvh follows the visible mobile viewport when browser controls change. */
-        height: calc(100dvh - 136px);
+        left: 12px;
+        width: calc(100% - 24px);
+        height: 46px;
         padding: 0;
+        flex-direction: row;
+        overflow-x: auto;
         border: 0;
+        scrollbar-width: none;
     }
 
-    .sidebar-label,
-    .side-link-text {
+    .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar-label {
         display: none;
     }
 
     .sidebar-nav,
     .sidebar-settings {
-        justify-items: center;
-        gap: 6px;
+        display: flex;
+        flex: 0 0 auto;
+        gap: 4px;
     }
 
     .sidebar-settings {
-        padding-top: 8px;
+        margin: 0 0 0 4px;
+        padding: 0 0 0 8px;
+        border-top: 0;
+        border-left: 1px solid rgba(201, 188, 145, 0.38);
     }
 
     .side-link {
-        width: 42px;
-        min-height: 42px;
-        padding: 0;
-        justify-content: center;
+        width: auto;
+        min-height: 40px;
+        padding: 0 9px;
+        flex: 0 0 auto;
+        gap: 7px;
+        white-space: nowrap;
+    }
+
+    .side-link-text {
+        display: inline;
     }
 
     .main-content {
-        margin-left: 68px;
-        padding: 36px 16px;
+        margin-left: 0;
+        padding: 76px 16px 36px;
     }
 
     .intro-label {
@@ -661,19 +688,6 @@ body {
 }
 
 /* Tighten spacing further on very narrow screens. */
-@media (max-width: 360px) {
-    .sidebar {
-        left: 12px;
-        width: 40px;
-    }
-
-    .side-link {
-        width: 38px;
-        min-height: 38px;
-    }
-}
-
-/* Slightly reduce navigation spacing and text at the same narrow breakpoint. */
 @media (max-width: 360px) {
     .main-nav {
         gap: 4px;
